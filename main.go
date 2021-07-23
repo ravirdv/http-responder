@@ -15,7 +15,7 @@ func index(w http.ResponseWriter, req *http.Request) {
 		fmt.Println(delay)
 	}
 	time.Sleep(time.Duration(delay) * 1000 * time.Millisecond)
-	w.Header().Set("Server", "nginx/1.21.1") // normal header
+	w.Header().Add("Server", "nginx/1.21.1") // normal header
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, getenv("CONTENT", "Set CONTENT env var for custom response string"))
 }
